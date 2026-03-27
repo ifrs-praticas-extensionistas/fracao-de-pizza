@@ -15,10 +15,13 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.1400.4.1003",
   },
   "name":"fracao-de-pizza",
   "resources":[
+    {"id":{"name":"font_money","path":"fonts/font_money/font_money.yy",},},
+    {"id":{"name":"obj_money_popup","path":"objects/obj_money_popup/obj_money_popup.yy",},},
+    {"id":{"name":"obj_money","path":"objects/obj_money/obj_money.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "resourceType":"GMProject",
