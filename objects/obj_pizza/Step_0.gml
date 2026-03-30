@@ -6,7 +6,7 @@ for (var i = 0; i <= 9; i++) {
 }
 
 // Clamp (avoid 0 or too many slices)
-slice_count = clamp(slice_count, 1, 9);
+slice_count = clamp(slice_count, 2, 9);
 
 // Rebuild slice array if count changed
 if (slice_count != last_slice_count) {
