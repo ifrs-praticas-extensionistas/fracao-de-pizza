@@ -66,17 +66,17 @@ BACKUP_FILE="${YYP_FILE}.bak"
 cp "$YYP_FILE" "$BACKUP_FILE"
 
 # -----------------------------------------------------------------------------
-# Auxiliar: extrai o valor de um campo de um arquivo .yy usando grep + sed
-# Funciona com o formato JSON do GameMaker (que pode ter vírgulas no final)
-# Uso: extract_field <arquivo> <campo>
+# Auxiliar: deriva o nome do recurso a partir do nome do arquivo .yy
+#
+# No GameMaker, o nome do recurso é SEMPRE idêntico ao nome do arquivo sem
+# extensão. Ex: objects/obj_pizza/obj_pizza.yy -> "obj_pizza".
+# Isso é mais simples e robusto do que tentar ler o campo "name" de dentro do
+# arquivo, que contém muitos outros campos "name" aninhados (instâncias, grupos
+# de textura, fontes, etc.) que causariam leituras incorretas.
 # -----------------------------------------------------------------------------
 
-extract_field() {
-  local file="$1"
-  local field="$2"
-  # Corresponde a: "campo": "valor"  (com vírgula opcional no final)
-  grep -m1 "\"${field}\"" "$file" \
-    | sed 's/.*"'"$field"'" *: *"\([^"]*\)".*/\1/'
+resource_name_from_path() {
+  basename "$1" .yy
 }
 
 # -----------------------------------------------------------------------------
@@ -92,8 +92,10 @@ RESOURCE_COUNT=0
 mapfile -d '' YY_FILES < <(
   find "$PROJECT_ROOT" \
     -name "*.yy" \
+    -not -name "*.*.yy" \
     -not -path "*/.git/*" \
     -not -path "*/datafiles/*" \
+    -not -path "*/options/*" \
     -print0 \
   | sort -z
 )
@@ -102,8 +104,8 @@ for yy_file in "${YY_FILES[@]}"; do
   # Obtém o caminho relativo a partir da raiz do projeto (barras normais, sem ./ no início)
   rel_path="${yy_file#"$PROJECT_ROOT"/}"
 
-  # Extrai o campo name do arquivo .yy
-  name="$(extract_field "$yy_file" "name")"
+  # Deriva o nome do recurso diretamente do nome do arquivo
+  name="$(resource_name_from_path "$yy_file")"
 
   if [ -z "$name" ]; then
     warn "Não foi possível extrair 'name' de '$rel_path' — ignorando."
@@ -111,7 +113,7 @@ for yy_file in "${YY_FILES[@]}"; do
   fi
 
   # Monta a entrada do recurso (formato GameMaker com vírgulas no final)
-  entry="{\"id\":{\"name\":\"${name}\",\"path\":\"${rel_path}\",},}"
+  entry="    {\"id\":{\"name\":\"${name}\",\"path\":\"${rel_path}\",},},"
 
   if [ -n "$RESOURCES_JSON" ]; then
     RESOURCES_JSON="${RESOURCES_JSON}
@@ -150,7 +152,7 @@ if [ -d "$DATAFILES_DIR" ]; then
     # filePath é o diretório relativo que contém o arquivo (não o arquivo em si)
     rel_dir="$(dirname "${data_file#"$PROJECT_ROOT"/}")"
 
-    entry="{\"CopyToMask\":-1,\"filePath\":\"${rel_dir}\",\"resourceVersion\":\"1.0\",\"name\":\"${file_name}\",\"resourceType\":\"GMIncludedFile\",}"
+    entry="    {\"CopyToMask\":-1,\"filePath\":\"${rel_dir}\",\"resourceVersion\":\"1.0\",\"name\":\"${file_name}\",\"resourceType\":\"GMIncludedFile\",},"
 
     if [ -n "$INCLUDEDFILES_JSON" ]; then
       INCLUDEDFILES_JSON="${INCLUDEDFILES_JSON}
@@ -188,14 +190,14 @@ if [ -d "$ROOMS_DIR" ]; then
 
   for room_file in "${ROOM_FILES[@]}"; do
     rel_path="${room_file#"$PROJECT_ROOT"/}"
-    name="$(extract_field "$room_file" "name")"
+    name="$(resource_name_from_path "$room_file")"
 
     if [ -z "$name" ]; then
       warn "Não foi possível extrair 'name' da sala '$rel_path' — ignorando."
       continue
     fi
 
-    entry="{\"roomId\":{\"name\":\"${name}\",\"path\":\"${rel_path}\",},}"
+    entry="    {\"roomId\":{\"name\":\"${name}\",\"path\":\"${rel_path}\",},},"
 
     if [ -n "$ROOMORDER_JSON" ]; then
       ROOMORDER_JSON="${ROOMORDER_JSON}
@@ -208,17 +210,18 @@ ${entry}"
   done
 fi
 
-log "Found $ROOM_COUNT rooms."
+log "$ROOM_COUNT salas encontradas."
 
 # -----------------------------------------------------------------------------
 # Substituir as seções no arquivo .yyp usando awk
 #
-# Estratégia: lê o .yyp linha por linha. Ao encontrar a linha de abertura de uma
-# seção gerenciada, descarta as linhas até encontrar o ] de fechamento, então
-# injeta o conteúdo reconstruído. Todas as outras linhas passam sem alteração.
+# Estratégia: o .yyp pode estar em formato compacto (tudo numa linha) ou
+# formatado (multi-linha). Para lidar com ambos de forma robusta, lemos o
+# arquivo inteiro como uma única string no awk, fazemos as substituições de
+# seção com expressões regulares, e regravamos o resultado.
 # -----------------------------------------------------------------------------
 
-log "Rebuilding $YYP_NAME..."
+log "Reconstruindo $YYP_NAME..."
 
 TEMP_FILE="${YYP_FILE}.tmp"
 
@@ -227,36 +230,44 @@ awk \
   -v includedfiles_json="$INCLUDEDFILES_JSON" \
   -v roomorder_json="$ROOMORDER_JSON" \
 '
-function inject(label, content,    lines, n, i) {
-  # Imprime a linha de abertura da seção (ex: "resources": [)
-  print $0
-  # Imprime cada linha de entrada
-  if (content != "") {
-    n = split(content, lines, "\n")
-    for (i = 1; i <= n; i++) {
-      print lines[i]
-    }
-  }
-  # Descarta as linhas originais até encontrar o ] de fechamento
-  while ((getline line) > 0) {
-    if (line ~ /^[[:space:]]*\]/) {
-      print line   # imprime o ] de fechamento
-      return
-    }
-    # descarta o conteúdo original dentro da seção
-  }
-}
+BEGIN { content = "" }
 
-{
-  if ($0 ~ /"resources"[[:space:]]*:[[:space:]]*\[/) {
-    inject("resources", resources_json)
-  } else if ($0 ~ /"IncludedFiles"[[:space:]]*:[[:space:]]*\[/) {
-    inject("IncludedFiles", includedfiles_json)
-  } else if ($0 ~ /"RoomOrderNodes"[[:space:]]*:[[:space:]]*\[/) {
-    inject("RoomOrderNodes", roomorder_json)
+{ content = content $0 "\n" }
+
+END {
+  # Colapsa tudo em uma única linha para que os padrões de substituição
+  # funcionem independentemente de o arquivo ser compacto ou multi-linha.
+  # Guarda as quebras de linha originais como marcador temporário.
+  gsub(/\n/, "@@NEWLINE@@", content)
+
+  # Substitui cada seção gerenciada: captura a chave e os colchetes,
+  # descarta o conteúdo original, injeta o novo.
+  # Se o conteúdo for vazio, usa [] na mesma linha. Caso contrário, formata com indentação.
+  if (resources_json == "") {
+    gsub(/"resources"[[:space:]]*:[[:space:]]*\[[^]]*\]/, "\"resources\":[]", content)
   } else {
-    print $0
+    gsub(/"resources"[[:space:]]*:[[:space:]]*\[[^]]*\]/, \
+         "\"resources\":[\n" resources_json "\n  ]", content)
   }
+
+  if (includedfiles_json == "") {
+    gsub(/"IncludedFiles"[[:space:]]*:[[:space:]]*\[[^]]*\]/, "\"IncludedFiles\":[]", content)
+  } else {
+    gsub(/"IncludedFiles"[[:space:]]*:[[:space:]]*\[[^]]*\]/, \
+         "\"IncludedFiles\":[\n" includedfiles_json "\n  ]", content)
+  }
+
+  if (roomorder_json == "") {
+    gsub(/"RoomOrderNodes"[[:space:]]*:[[:space:]]*\[[^]]*\]/, "\"RoomOrderNodes\":[]", content)
+  } else {
+    gsub(/"RoomOrderNodes"[[:space:]]*:[[:space:]]*\[[^]]*\]/, \
+         "\"RoomOrderNodes\":[\n" roomorder_json "\n  ]", content)
+  }
+
+  # Restaura as quebras de linha originais que não foram substituídas
+  gsub(/@@NEWLINE@@/, "\n", content)
+
+  printf "%s", content
 }
 ' "$YYP_FILE" > "$TEMP_FILE"
 
@@ -285,7 +296,7 @@ fi
 mv "$TEMP_FILE" "$YYP_FILE"
 rm -f "$BACKUP_FILE"
 
-log "Done."
-log "  Resources rebuilt : $RESOURCE_COUNT"
-log "  Included files    : $INCLUDEDFILE_COUNT"
-log "  Room order nodes  : $ROOM_COUNT"
+log "Concluído."
+log "  Recursos reconstruídos : $RESOURCE_COUNT"
+log "  Arquivos incluídos     : $INCLUDEDFILE_COUNT"
+log "  Nós de ordem de salas  : $ROOM_COUNT"

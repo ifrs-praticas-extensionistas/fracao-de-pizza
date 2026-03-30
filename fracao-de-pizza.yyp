@@ -23,10 +23,10 @@
   },
   "name":"fracao-de-pizza",
   "resources":[
-    {"id":{"name":"obj_pizza","path":"objects/obj_pizza/obj_pizza.yy",},},
     {"id":{"name":"font_money","path":"fonts/font_money/font_money.yy",},},
-    {"id":{"name":"obj_money_popup","path":"objects/obj_money_popup/obj_money_popup.yy",},},
     {"id":{"name":"obj_money","path":"objects/obj_money/obj_money.yy",},},
+    {"id":{"name":"obj_money_popup","path":"objects/obj_money_popup/obj_money_popup.yy",},},
+    {"id":{"name":"obj_pizza","path":"objects/obj_pizza/obj_pizza.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"sh_slice","path":"shaders/sh_slice/sh_slice.yy",},},
     {"id":{"name":"spr_pizza","path":"sprites/spr_pizza/spr_pizza.yy",},},
