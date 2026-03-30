@@ -10,8 +10,8 @@
   "name":"obj_money_popup",
   "overriddenProperties":[],
   "parent":{
-    "name":"BLANK GAME",
-    "path":"BLANK GAME.yyp",
+    "name":"fracao-de-pizza",
+    "path":"fracao-de-pizza.yyp",
   },
   "parentObjectId":null,
   "persistent":false,

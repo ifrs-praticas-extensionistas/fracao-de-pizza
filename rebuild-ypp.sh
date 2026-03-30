@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 # =============================================================================
 # rebuild_yyp.sh
-# Rebuilds the dynamic sections of a GameMaker .yyp file from disk.
+# Reconstrói as seções dinâmicas de um arquivo .yyp do GameMaker a partir do disco.
 #
-# Sections rebuilt:
-#   - resources[]       — scanned from all *.yy files on disk
-#   - IncludedFiles[]   — scanned from the datafiles/ folder
-#   - RoomOrderNodes[]  — scanned from rooms/ folder, order preserved if possible
+# Seções reconstruídas:
+#   - resources[]       — escaneado a partir de todos os arquivos *.yy no disco
+#   - IncludedFiles[]   — escaneado a partir da pasta datafiles/
+#   - RoomOrderNodes[]  — escaneado a partir da pasta rooms/, ordem preservada se possível
 #
-# Sections left untouched:
+# Seções não modificadas:
 #   - TextureGroups, AudioGroups, Options, tags, name, resourceVersion, etc.
 #
-# Usage:
+# Uso:
 #   bash rebuild_yyp.sh
-#   bash rebuild_yyp.sh /path/to/project
+#   bash rebuild_yyp.sh /caminho/para/o/projeto
 # =============================================================================
 
 set -euo pipefail
 
 # -----------------------------------------------------------------------------
-# Helpers
+# Funções auxiliares
 # -----------------------------------------------------------------------------
 
 log()  { echo "[rebuild_yyp] $*"; }
@@ -27,13 +27,13 @@ err()  { echo "[rebuild_yyp] ERROR: $*" >&2; exit 1; }
 warn() { echo "[rebuild_yyp] WARNING: $*" >&2; }
 
 # -----------------------------------------------------------------------------
-# Locate project root
+# Localizar a raiz do projeto
 # -----------------------------------------------------------------------------
 
 if [ -n "${1:-}" ]; then
   PROJECT_ROOT="$1"
 else
-  # If inside a git repo, use its root. Otherwise use current directory.
+  # Se estiver dentro de um repositório git, usa a raiz dele. Caso contrário, usa o diretório atual.
   if git rev-parse --show-toplevel &>/dev/null 2>&1; then
     PROJECT_ROOT="$(git rev-parse --show-toplevel)"
   else
@@ -44,7 +44,7 @@ fi
 cd "$PROJECT_ROOT" || err "Cannot cd into '$PROJECT_ROOT'"
 
 # -----------------------------------------------------------------------------
-# Find the .yyp file
+# Encontrar o arquivo .yyp
 # -----------------------------------------------------------------------------
 
 YYP_FILE=""
@@ -59,36 +59,36 @@ done < <(find "$PROJECT_ROOT" -maxdepth 1 -name "*.yyp" -print0)
 [ -f "$YYP_FILE" ] || err "Found .yyp path '$YYP_FILE' but it is not a regular file."
 
 YYP_NAME="$(basename "$YYP_FILE")"
-log "Found project file: $YYP_NAME"
+log "Arquivo do projeto encontrado: $YYP_NAME"
 
-# Keep a backup in case something goes wrong
+# Mantém um backup caso algo dê errado
 BACKUP_FILE="${YYP_FILE}.bak"
 cp "$YYP_FILE" "$BACKUP_FILE"
 
 # -----------------------------------------------------------------------------
-# Helper: extract a field value from a .yy file using grep + sed
-# Works on the GameMaker JSON-like format (may have trailing commas)
-# Usage: extract_field <file> <fieldname>
+# Auxiliar: extrai o valor de um campo de um arquivo .yy usando grep + sed
+# Funciona com o formato JSON do GameMaker (que pode ter vírgulas no final)
+# Uso: extract_field <arquivo> <campo>
 # -----------------------------------------------------------------------------
 
 extract_field() {
   local file="$1"
   local field="$2"
-  # Matches: "fieldname": "value"  (with optional trailing comma)
+  # Corresponde a: "campo": "valor"  (com vírgula opcional no final)
   grep -m1 "\"${field}\"" "$file" \
     | sed 's/.*"'"$field"'" *: *"\([^"]*\)".*/\1/'
 }
 
 # -----------------------------------------------------------------------------
-# Build resources[] — all *.yy files except the ones we handle separately
+# Construir resources[] — todos os arquivos *.yy exceto os tratados separadamente
 # -----------------------------------------------------------------------------
 
-log "Scanning for .yy resources..."
+log "Escaneando recursos .yy..."
 
 RESOURCES_JSON=""
 RESOURCE_COUNT=0
 
-# Collect all .yy files, sorted for deterministic output
+# Coleta todos os arquivos .yy, ordenados para saída determinística
 mapfile -d '' YY_FILES < <(
   find "$PROJECT_ROOT" \
     -name "*.yy" \
@@ -99,18 +99,18 @@ mapfile -d '' YY_FILES < <(
 )
 
 for yy_file in "${YY_FILES[@]}"; do
-  # Get relative path from project root (forward slashes, no leading ./)
+  # Obtém o caminho relativo a partir da raiz do projeto (barras normais, sem ./ no início)
   rel_path="${yy_file#"$PROJECT_ROOT"/}"
 
-  # Extract the name field from the .yy file
+  # Extrai o campo name do arquivo .yy
   name="$(extract_field "$yy_file" "name")"
 
   if [ -z "$name" ]; then
-    warn "Could not extract 'name' from '$rel_path' — skipping."
+    warn "Não foi possível extrair 'name' de '$rel_path' — ignorando."
     continue
   fi
 
-  # Build the resource entry (GameMaker format with trailing commas)
+  # Monta a entrada do recurso (formato GameMaker com vírgulas no final)
   entry="{\"id\":{\"name\":\"${name}\",\"path\":\"${rel_path}\",},}"
 
   if [ -n "$RESOURCES_JSON" ]; then
@@ -123,14 +123,14 @@ ${entry}"
   RESOURCE_COUNT=$((RESOURCE_COUNT + 1))
 done
 
-[ "$RESOURCE_COUNT" -eq 0 ] && err "No .yy files found — refusing to write an empty resources[]."
-log "Found $RESOURCE_COUNT resources."
+[ "$RESOURCE_COUNT" -eq 0 ] && err "Nenhum arquivo .yy encontrado — recusando gravar resources[] vazio."
+log "$RESOURCE_COUNT recursos encontrados."
 
 # -----------------------------------------------------------------------------
-# Build IncludedFiles[] — files inside datafiles/
+# Construir IncludedFiles[] — arquivos dentro de datafiles/
 # -----------------------------------------------------------------------------
 
-log "Scanning for included files..."
+log "Escaneando arquivos incluídos..."
 
 INCLUDEDFILES_JSON=""
 INCLUDEDFILE_COUNT=0
@@ -147,7 +147,7 @@ if [ -d "$DATAFILES_DIR" ]; then
 
   for data_file in "${DATA_FILES[@]}"; do
     file_name="$(basename "$data_file")"
-    # filePath is the relative directory containing the file (not the file itself)
+    # filePath é o diretório relativo que contém o arquivo (não o arquivo em si)
     rel_dir="$(dirname "${data_file#"$PROJECT_ROOT"/}")"
 
     entry="{\"CopyToMask\":-1,\"filePath\":\"${rel_dir}\",\"resourceVersion\":\"1.0\",\"name\":\"${file_name}\",\"resourceType\":\"GMIncludedFile\",}"
@@ -163,15 +163,15 @@ ${entry}"
   done
 fi
 
-log "Found $INCLUDEDFILE_COUNT included files."
+log "$INCLUDEDFILE_COUNT arquivos incluídos encontrados."
 
 # -----------------------------------------------------------------------------
-# Build RoomOrderNodes[] — rooms in alphabetical order
-# (Preserving custom order would require a separate source-of-truth file;
-#  for now we sort alphabetically for determinism)
+# Construir RoomOrderNodes[] — salas em ordem alfabética
+# (Preservar uma ordem customizada exigiria um arquivo separado como fonte de verdade;
+#  por ora ordenamos alfabeticamente para garantir determinismo)
 # -----------------------------------------------------------------------------
 
-log "Scanning for rooms..."
+log "Escaneando salas..."
 
 ROOMORDER_JSON=""
 ROOM_COUNT=0
@@ -191,7 +191,7 @@ if [ -d "$ROOMS_DIR" ]; then
     name="$(extract_field "$room_file" "name")"
 
     if [ -z "$name" ]; then
-      warn "Could not extract 'name' from room '$rel_path' — skipping."
+      warn "Não foi possível extrair 'name' da sala '$rel_path' — ignorando."
       continue
     fi
 
@@ -211,11 +211,11 @@ fi
 log "Found $ROOM_COUNT rooms."
 
 # -----------------------------------------------------------------------------
-# Splice the new sections into the .yyp file using awk
+# Substituir as seções no arquivo .yyp usando awk
 #
-# Strategy: read the .yyp line by line. When we find the opening line of a
-# section we manage, discard lines until we find the closing ], then inject
-# our rebuilt content. All other lines are passed through unchanged.
+# Estratégia: lê o .yyp linha por linha. Ao encontrar a linha de abertura de uma
+# seção gerenciada, descarta as linhas até encontrar o ] de fechamento, então
+# injeta o conteúdo reconstruído. Todas as outras linhas passam sem alteração.
 # -----------------------------------------------------------------------------
 
 log "Rebuilding $YYP_NAME..."
@@ -228,22 +228,22 @@ awk \
   -v roomorder_json="$ROOMORDER_JSON" \
 '
 function inject(label, content,    lines, n, i) {
-  # Print the opening line of the section (e.g. "resources": [)
+  # Imprime a linha de abertura da seção (ex: "resources": [)
   print $0
-  # Print each entry line
+  # Imprime cada linha de entrada
   if (content != "") {
     n = split(content, lines, "\n")
     for (i = 1; i <= n; i++) {
       print lines[i]
     }
   }
-  # Skip original lines until we find the closing ]
+  # Descarta as linhas originais até encontrar o ] de fechamento
   while ((getline line) > 0) {
     if (line ~ /^[[:space:]]*\]/) {
-      print line   # print the closing ]
+      print line   # imprime o ] de fechamento
       return
     }
-    # discard original content inside the section
+    # descarta o conteúdo original dentro da seção
   }
 }
 
@@ -261,25 +261,25 @@ function inject(label, content,    lines, n, i) {
 ' "$YYP_FILE" > "$TEMP_FILE"
 
 # -----------------------------------------------------------------------------
-# Validate: basic sanity check on the output before committing to it
+# Validar: verificação básica de sanidade antes de sobrescrever o arquivo
 # -----------------------------------------------------------------------------
 
 if [ ! -s "$TEMP_FILE" ]; then
   rm -f "$TEMP_FILE"
-  err "Output file is empty — something went wrong. Original .yyp is untouched."
+  err "O arquivo de saída está vazio — algo deu errado. O .yyp original não foi alterado."
 fi
 
-# Count braces to catch catastrophic mangling
+# Conta as chaves para detectar corrupção grave
 OPEN_BRACES=$(grep -o '{' "$TEMP_FILE" | wc -l)
 CLOSE_BRACES=$(grep -o '}' "$TEMP_FILE" | wc -l)
 
 if [ "$OPEN_BRACES" -ne "$CLOSE_BRACES" ]; then
   rm -f "$TEMP_FILE"
-  err "Brace mismatch in output ({: $OPEN_BRACES, }: $CLOSE_BRACES) — refusing to overwrite. Original .yyp is untouched."
+  err "Chaves desbalanceadas na saída ({: $OPEN_BRACES, }: $CLOSE_BRACES) — recusando sobrescrever. O .yyp original não foi alterado."
 fi
 
 # -----------------------------------------------------------------------------
-# Write output and clean up
+# Gravar saída e limpar arquivos temporários
 # -----------------------------------------------------------------------------
 
 mv "$TEMP_FILE" "$YYP_FILE"
