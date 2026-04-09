@@ -15,7 +15,9 @@
     {"$GMFolder":"","%Name":"objects","folderPath":"folders/objects.yy","name":"objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"shaders","folderPath":"folders/shaders.yy","name":"shaders","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "ForcedPrefabProjectReferences":[],
+  "ForcedPrefabProjectReferences":[
+     {"link":"io.gamemaker.sdfshaders-1.0.0","name":"io.gamemaker.sdfshaders-1.0.0","path":"io.gamemaker.sdfshaders-1.0.0.yyp",},
+  ],
   "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
@@ -24,6 +26,7 @@
   },
   "name":"fracao-de-pizza",
   "resources":[
+    {"id":{"name":"font_money_popup","path":"fonts/font_money_popup/font_money_popup.yy",},},
     {"id":{"name":"font_money","path":"fonts/font_money/font_money.yy",},},
     {"id":{"name":"obj_money_popup","path":"objects/obj_money_popup/obj_money_popup.yy",},},
     {"id":{"name":"obj_money","path":"objects/obj_money/obj_money.yy",},},

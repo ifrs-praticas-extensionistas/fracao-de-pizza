@@ -119,8 +119,8 @@
   "maintainGms1Font":false,
   "name":"font_money",
   "parent":{
-    "name":"fracao-de-pizza",
-    "path":"fracao-de-pizza.yyp",
+    "name":"BLANK GAME",
+    "path":"BLANK GAME.yyp",
   },
   "pointRounding":0,
   "ranges":[
