@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"orderManager",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"orderManager",
+  "parent":{
+    "name":"fracao-de-pizza",
+    "path":"fracao-de-pizza.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
