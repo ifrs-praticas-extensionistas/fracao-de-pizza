@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scale_canvas",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scale_canvas",
+  "parent":{
+    "name":"fracao-de-pizza",
+    "path":"fracao-de-pizza.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
