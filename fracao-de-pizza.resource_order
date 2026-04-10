@@ -4,6 +4,7 @@
     {"name":"font_clock","order":2,"path":"fonts/font_clock/font_clock.yy",},
     {"name":"obj_canvas","order":3,"path":"objects/obj_canvas/obj_canvas.yy",},
     {"name":"obj_clock","order":1,"path":"objects/obj_clock/obj_clock.yy",},
+    {"name":"money_funtions","order":5,"path":"scripts/money_funtions/money_funtions.yy",},
     {"name":"scale_canvas","order":4,"path":"scripts/scale_canvas/scale_canvas.yy",},
   ],
 }

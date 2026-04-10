@@ -17,7 +17,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.1400.4.1020",
+    "IDEVersion":"2024.1400.4.1003",
   },
   "name":"fracao-de-pizza",
   "resources":[
@@ -29,6 +29,7 @@
     {"id":{"name":"obj_money_popup","path":"objects/obj_money_popup/obj_money_popup.yy",},},
     {"id":{"name":"obj_money","path":"objects/obj_money/obj_money.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"money_funtions","path":"scripts/money_funtions/money_funtions.yy",},},
     {"id":{"name":"scale_canvas","path":"scripts/scale_canvas/scale_canvas.yy",},},
   ],
   "resourceType":"GMProject",

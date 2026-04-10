@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"money_funtions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"money_funtions",
+  "parent":{
+    "name":"fracao-de-pizza",
+    "path":"fracao-de-pizza.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
