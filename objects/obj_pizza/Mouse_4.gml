@@ -8,7 +8,6 @@ var _ang = point_direction(x, y, mouse_x, mouse_y);
 
 // Pega o indice do pedaço
 var _slice_index = floor(_ang / slice_size);
-show_debug_message("slice index: {0}", _slice_index)
 
 // Esconde o pedaço
 slices[_slice_index].visible = false;

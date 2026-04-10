@@ -24,8 +24,6 @@ for (var i = 0; i < slice_count; i++)
     shader_reset();
 }
 
-
-// Desenha os cortes na pizza
 draw_set_color(c_black);
 
 var radius = sprite_width * 0.5;
@@ -41,6 +39,7 @@ for (var i = 0; i < slice_count; i++)
 
     var x2 = cx + lengthdir_x(radius, ang);
     var y2 = cy + lengthdir_y(radius, ang);
-
+	
+	// Desenha os cortes na pizza
     draw_line(cx, cy, x2, y2);
 }
