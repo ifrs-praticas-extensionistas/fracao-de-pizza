@@ -1,0 +1,3 @@
+show_debug_message(obj_pizza.slices)
+show_debug_message(obj_pizza.slice_count)
+show_debug_message(obj_pizza.slice_size)
