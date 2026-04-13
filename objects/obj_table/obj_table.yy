@@ -1,13 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_money_popup",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_table",
+  "eventList":[],
   "managed":true,
-  "name":"obj_money_popup",
+  "name":"obj_table",
   "overriddenProperties":[],
   "parent":{
     "name":"objects",
@@ -31,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_table",
+    "path":"sprites/spr_table/spr_table.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
