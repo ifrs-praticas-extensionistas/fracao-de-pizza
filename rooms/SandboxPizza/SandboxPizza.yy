@@ -21,8 +21,8 @@
   ],
   "name":"SandboxPizza",
   "parent":{
-    "name":"fracao-de-pizza",
-    "path":"fracao-de-pizza.yyp",
+    "name":"salas",
+    "path":"folders/salas.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

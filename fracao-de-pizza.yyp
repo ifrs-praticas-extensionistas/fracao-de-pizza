@@ -12,6 +12,7 @@
   "Folders":[
     {"$GMFolder":"","%Name":"assets","folderPath":"folders/assets.yy","name":"assets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"fonts","folderPath":"folders/fonts.yy","name":"fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"salas","folderPath":"folders/salas.yy","name":"salas","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"objects","folderPath":"folders/objects.yy","name":"objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"shaders","folderPath":"folders/shaders.yy","name":"shaders","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
@@ -22,7 +23,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"fracao-de-pizza",
   "resources":[
@@ -33,6 +34,7 @@
     {"id":{"name":"obj_pizza_plate","path":"objects/obj_pizza_plate/obj_pizza_plate.yy",},},
     {"id":{"name":"obj_pizza","path":"objects/obj_pizza/obj_pizza.yy",},},
     {"id":{"name":"obj_plate","path":"objects/obj_plate/obj_plate.yy",},},
+    {"id":{"name":"Fase1","path":"rooms/Fase1/Fase1.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"SandboxPizza","path":"rooms/SandboxPizza/SandboxPizza.yy",},},
     {"id":{"name":"sh_slice","path":"shaders/sh_slice/sh_slice.yy",},},
@@ -42,8 +44,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"SandboxPizza","path":"rooms/SandboxPizza/SandboxPizza.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"SandboxPizza","path":"rooms/SandboxPizza/SandboxPizza.yy",},},
+    {"roomId":{"name":"Fase1","path":"rooms/Fase1/Fase1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
