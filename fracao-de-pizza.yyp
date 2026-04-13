@@ -12,7 +12,7 @@
   "Folders":[
     {"$GMFolder":"","%Name":"assets","folderPath":"folders/assets.yy","name":"assets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"fonts","folderPath":"folders/fonts.yy","name":"fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"salas","folderPath":"folders/salas.yy","name":"salas","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"rooms","folderPath":"folders/rooms.yy","name":"rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"objects","folderPath":"folders/objects.yy","name":"objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"shaders","folderPath":"folders/shaders.yy","name":"shaders","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
@@ -29,6 +29,8 @@
   "resources":[
     {"id":{"name":"font_money_popup","path":"fonts/font_money_popup/font_money_popup.yy",},},
     {"id":{"name":"font_money","path":"fonts/font_money/font_money.yy",},},
+    {"id":{"name":"obj_button_cancel","path":"objects/obj_button_cancel/obj_button_cancel.yy",},},
+    {"id":{"name":"obj_button_confirm","path":"objects/obj_button_confirm/obj_button_confirm.yy",},},
     {"id":{"name":"obj_money_popup","path":"objects/obj_money_popup/obj_money_popup.yy",},},
     {"id":{"name":"obj_money","path":"objects/obj_money/obj_money.yy",},},
     {"id":{"name":"obj_pizza_plate","path":"objects/obj_pizza_plate/obj_pizza_plate.yy",},},
@@ -38,15 +40,16 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"SandboxPizza","path":"rooms/SandboxPizza/SandboxPizza.yy",},},
     {"id":{"name":"sh_slice","path":"shaders/sh_slice/sh_slice.yy",},},
+    {"id":{"name":"spr_background","path":"sprites/spr_background/spr_background.yy",},},
     {"id":{"name":"spr_pizza","path":"sprites/spr_pizza/spr_pizza.yy",},},
     {"id":{"name":"spr_plate","path":"sprites/spr_plate/spr_plate.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"Fase1","path":"rooms/Fase1/Fase1.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"SandboxPizza","path":"rooms/SandboxPizza/SandboxPizza.yy",},},
-    {"roomId":{"name":"Fase1","path":"rooms/Fase1/Fase1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

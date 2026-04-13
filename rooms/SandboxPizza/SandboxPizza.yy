@@ -21,8 +21,8 @@
   ],
   "name":"SandboxPizza",
   "parent":{
-    "name":"salas",
-    "path":"folders/salas.yy",
+    "name":"rooms",
+    "path":"folders/rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

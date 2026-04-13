@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_plate",
+  "%Name":"obj_button_confirm",
   "eventList":[],
   "managed":true,
-  "name":"obj_plate",
+  "name":"obj_button_confirm",
   "overriddenProperties":[],
   "parent":{
     "name":"objects",
@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_plate",
-    "path":"sprites/spr_plate/spr_plate.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
