@@ -2,14 +2,20 @@
 var cx = x;
 var cy = y;
 
-for (var i = 0; i < obj_pizza.slice_count; i++)
+if (!instance_exists(obj_pizza)) exit;
+
+var _slices = obj_pizza.slices;
+var _num_slices = array_length(_slices);
+var _slice_size = obj_pizza.slice_size;
+
+for (var i = 0; i < _num_slices; i++)
 {
-	// Se o pedaço estiver visível, não desenha ele no prato (ainda não selecionado)
-    if (obj_pizza.slices[i].visible) continue;
+	// Se o pedaço estiver visível na pizza principal, não desenha ele no prato
+    if (_slices[i].visible) continue;
 
 	// Pega os ângulos de início e fim do pedaço
-    var ang1 = i *  obj_pizza.slice_size;
-    var ang2 = (i + 1) *  obj_pizza.slice_size;
+    var ang1 = i * _slice_size;
+    var ang2 = (i + 1) * _slice_size;
 	
     shader_set(sh_slice);
 
