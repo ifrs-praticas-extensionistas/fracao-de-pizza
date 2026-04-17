@@ -9,8 +9,8 @@
   "name":"obj_canvas",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"contoller",
+    "path":"folders/objects/contoller.yy",
   },
   "parentObjectId":null,
   "persistent":true,

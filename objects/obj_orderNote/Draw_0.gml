@@ -12,7 +12,7 @@ if (flash_timer > 0) {
     _blend = c_red;
 }
 
-draw_sprite_stretched_ext(background_sticker, 0, -50, -50, 100, 100, _blend, alpha);
+draw_sprite_stretched_ext(spr_sticke, 0, -50, -50, 100, 100, _blend, alpha);
 
 // Fração
 draw_set_alpha(alpha);

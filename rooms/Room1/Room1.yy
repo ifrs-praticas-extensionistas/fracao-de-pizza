@@ -19,8 +19,8 @@
   ],
   "name":"Room1",
   "parent":{
-    "name":"fracao-de-pizza",
-    "path":"fracao-de-pizza.yyp",
+    "name":"rooms",
+    "path":"folders/rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

@@ -5,7 +5,7 @@ target_x   = x;
 target_y   = y;
 entrando   = true;
 
-tempo_total    = 10.0;
+tempo_total    = 30.0;
 tempo_restante = tempo_total;
 
 concluido = false;
