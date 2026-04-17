@@ -2,7 +2,9 @@
 var cx = x;
 var cy = y;
 
-for (var i = 0; i < slice_count; i++)
+var _num_slices = array_length(slices);
+
+for (var i = 0; i < _num_slices; i++)
 {
 	// Se o pedaço tiver escondido, não desenha ele
     if (!slices[i].visible) continue;
@@ -28,10 +30,10 @@ draw_set_color(c_black);
 
 var radius = sprite_width * 0.5;
 
-for (var i = 0; i < slice_count; i++)
+for (var i = 0; i < _num_slices; i++)
 {
 	
-	var _prev_i = i == 0 ? (slice_count - 1) : i - 1;
+	var _prev_i = i == 0 ? (_num_slices - 1) : i - 1;
 	
 	if (!slices[i].visible && !slices[_prev_i].visible) continue;
 	

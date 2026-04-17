@@ -5,7 +5,7 @@ if (!acabou) {
 
     if (time_left <= 0) {
         time_left = 0;
-        ended = true;
+        acabou = true;
 
         // fim da fase
         show_message("Tempo esgotado!");
