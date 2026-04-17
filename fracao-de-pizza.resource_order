@@ -1,0 +1,18 @@
+{
+  "FolderOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"font_money_popup","order":2,"path":"fonts/font_money_popup/font_money_popup.yy",},
+    {"name":"font_money","order":1,"path":"fonts/font_money/font_money.yy",},
+    {"name":"obj_canvas","order":7,"path":"objects/obj_canvas/obj_canvas.yy",},
+    {"name":"obj_clock","order":3,"path":"objects/obj_clock/obj_clock.yy",},
+    {"name":"obj_money_popup","order":5,"path":"objects/obj_money_popup/obj_money_popup.yy",},
+    {"name":"obj_money","order":4,"path":"objects/obj_money/obj_money.yy",},
+    {"name":"obj_pizza_plate","order":1,"path":"objects/obj_pizza_plate/obj_pizza_plate.yy",},
+    {"name":"obj_plate","order":2,"path":"objects/obj_plate/obj_plate.yy",},
+    {"name":"obj_table","order":6,"path":"objects/obj_table/obj_table.yy",},
+    {"name":"money_functions","order":4,"path":"scripts/money_functions/money_functions.yy",},
+    {"name":"spr_clock","order":3,"path":"sprites/spr_clock/spr_clock.yy",},
+    {"name":"spr_plate","order":1,"path":"sprites/spr_plate/spr_plate.yy",},
+    {"name":"spr_table","order":2,"path":"sprites/spr_table/spr_table.yy",},
+  ],
+}

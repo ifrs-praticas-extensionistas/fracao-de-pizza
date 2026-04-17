@@ -10,8 +10,8 @@
   "name":"obj_money_popup",
   "overriddenProperties":[],
   "parent":{
-    "name":"fracao-de-pizza",
-    "path":"fracao-de-pizza.yyp",
+    "name":"objects",
+    "path":"folders/objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
