@@ -8,8 +8,8 @@
   "name":"obj_plate",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"backgound",
+    "path":"folders/objects/backgound.yy",
   },
   "parentObjectId":null,
   "persistent":false,

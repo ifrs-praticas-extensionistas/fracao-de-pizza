@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"money_functions",
   "parent":{
-    "name":"fracao-de-pizza",
-    "path":"fracao-de-pizza.yyp",
+    "name":"scripts",
+    "path":"folders/scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -8,8 +8,8 @@
   "name":"obj_init",
   "overriddenProperties":[],
   "parent":{
-    "name":"fracao-de-pizza",
-    "path":"fracao-de-pizza.yyp",
+    "name":"contoller",
+    "path":"folders/objects/contoller.yy",
   },
   "parentObjectId":null,
   "persistent":false,

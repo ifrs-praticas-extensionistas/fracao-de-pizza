@@ -10,8 +10,8 @@
   "name":"obj_orderManager",
   "overriddenProperties":[],
   "parent":{
-    "name":"fracao-de-pizza",
-    "path":"fracao-de-pizza.yyp",
+    "name":"orders",
+    "path":"folders/objects/orders.yy",
   },
   "parentObjectId":null,
   "persistent":false,
