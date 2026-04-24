@@ -14,6 +14,7 @@
     {"name":"font_money_popup","order":2,"path":"fonts/font_money_popup/font_money_popup.yy",},
     {"name":"font_money","order":1,"path":"fonts/font_money/font_money.yy",},
     {"name":"obj_clock","order":2,"path":"objects/obj_clock/obj_clock.yy",},
+    {"name":"obj_cutboard","order":3,"path":"objects/obj_cutboard/obj_cutboard.yy",},
     {"name":"obj_init","order":1,"path":"objects/obj_init/obj_init.yy",},
     {"name":"obj_money_popup","order":1,"path":"objects/obj_money_popup/obj_money_popup.yy",},
     {"name":"obj_orderManager","order":1,"path":"objects/obj_orderManager/obj_orderManager.yy",},
@@ -25,8 +26,10 @@
     {"name":"SandboxPizza","order":1,"path":"rooms/SandboxPizza/SandboxPizza.yy",},
     {"name":"orderManager","order":1,"path":"scripts/orderManager/orderManager.yy",},
     {"name":"spr_clock","order":3,"path":"sprites/spr_clock/spr_clock.yy",},
+    {"name":"spr_cutboard","order":5,"path":"sprites/spr_cutboard/spr_cutboard.yy",},
     {"name":"spr_plate","order":1,"path":"sprites/spr_plate/spr_plate.yy",},
     {"name":"spr_sticke","order":4,"path":"sprites/spr_sticke/spr_sticke.yy",},
     {"name":"spr_table","order":2,"path":"sprites/spr_table/spr_table.yy",},
+    {"name":"Sprite6","order":7,"path":"sprites/Sprite6/Sprite6.yy",},
   ],
 }

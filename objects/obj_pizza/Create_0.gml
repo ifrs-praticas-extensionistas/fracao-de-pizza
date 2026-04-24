@@ -6,7 +6,8 @@ slice_animated = [];
 for (var i = 0; i < slice_count; i++) {
     slices[i] = {
         visible: true,
-		animated: false
+		animated: false,
+		onplate: false
     };
 }
 
