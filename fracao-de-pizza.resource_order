@@ -1,12 +1,12 @@
 {
   "FolderOrderSettings":[
-    {"name":"rooms","order":6,"path":"folders/rooms.yy",},
     {"name":"backgound","order":16,"path":"folders/objects/backgound.yy",},
     {"name":"contoller","order":18,"path":"folders/objects/contoller.yy",},
     {"name":"menus","order":17,"path":"folders/objects/menus.yy",},
     {"name":"orders","order":15,"path":"folders/objects/orders.yy",},
     {"name":"pizza","order":14,"path":"folders/objects/pizza.yy",},
     {"name":"ui","order":19,"path":"folders/objects/ui.yy",},
+    {"name":"rooms","order":6,"path":"folders/rooms.yy",},
     {"name":"scripts","order":5,"path":"folders/scripts.yy",},
   ],
   "ResourceOrderSettings":[
@@ -19,6 +19,7 @@
     {"name":"obj_orderManager","order":1,"path":"objects/obj_orderManager/obj_orderManager.yy",},
     {"name":"obj_orderNote","order":2,"path":"objects/obj_orderNote/obj_orderNote.yy",},
     {"name":"obj_pizza_plate","order":1,"path":"objects/obj_pizza_plate/obj_pizza_plate.yy",},
+    {"name":"obj_pizza_slice","order":2,"path":"objects/obj_pizza_slice/obj_pizza_slice.yy",},
     {"name":"obj_plate","order":1,"path":"objects/obj_plate/obj_plate.yy",},
     {"name":"obj_sliceSelector","order":2,"path":"objects/obj_sliceSelector/obj_sliceSelector.yy",},
     {"name":"SandboxPizza","order":1,"path":"rooms/SandboxPizza/SandboxPizza.yy",},

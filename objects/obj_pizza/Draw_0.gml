@@ -26,7 +26,7 @@ for (var i = 0; i < _num_slices; i++)
     shader_reset();
 }
 
-draw_set_color(c_black);
+draw_set_color(c_red);
 
 var radius = sprite_width * 0.5;
 

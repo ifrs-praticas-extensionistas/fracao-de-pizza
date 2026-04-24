@@ -10,4 +10,9 @@ var _ang = point_direction(x, y, mouse_x, mouse_y);
 var _slice_index = floor(_ang / slice_size);
 
 // Esconde o pedaço
-slices[_slice_index].visible = false;
+if (slices[_slice_index].visible){
+	slices[_slice_index].visible = false;
+	slices[_slice_index].animated = true
+	
+	var inst = instance_create_layer (x, y, "Animations", obj_pizza_slice, {slice_index : _slice_index});
+}
