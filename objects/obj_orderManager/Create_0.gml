@@ -17,13 +17,13 @@ todas_fracoes = [
 ];
 
 // Cria os 4 botões de resposta
-botoes = array_create(4);
-var btn_esp = 190;
-var btn_ini = room_width / 2 - btn_esp * 1.5;
-for (var i = 0; i < 4; i++) {
-    botoes[i] = instance_create_layer(btn_ini + i * btn_esp, room_height - 80, "Instances", obj_answerButton);
-    botoes[i].btn_index = i;
-}
+//botoes = array_create(4);
+//var btn_esp = 190;
+//var btn_ini = room_width / 2 - btn_esp * 1.5;
+//for (var i = 0; i < 4; i++) {
+ //   botoes[i] = instance_create_layer(btn_ini + i * btn_esp, room_height - 80, "Instances", obj_answerButton);
+ //   botoes[i].btn_index = i;
+//}
 
 alarm[0] = room_speed * 2; // primeira nota
 alarm[1] = room_speed;     // atualização dos botões

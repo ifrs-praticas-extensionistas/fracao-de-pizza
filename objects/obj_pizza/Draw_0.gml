@@ -7,7 +7,7 @@ var _num_slices = array_length(slices);
 for (var i = 0; i < _num_slices; i++)
 {
 	// Se o pedaço tiver escondido, não desenha ele
-    if (!slices[i].visible) continue;
+    if (!slices[i].visible || slices[i].animated) continue;
 
 	// Pega os ângulos de início e fim do pedaço
     var ang1 = i * slice_size;
@@ -26,7 +26,7 @@ for (var i = 0; i < _num_slices; i++)
     shader_reset();
 }
 
-draw_set_color(c_black);
+draw_set_color(c_red);
 
 var radius = sprite_width * 0.5;
 
@@ -35,8 +35,9 @@ for (var i = 0; i < _num_slices; i++)
 	
 	var _prev_i = i == 0 ? (_num_slices - 1) : i - 1;
 	
+	if (slices[i].onplate && slices[_prev_i].onplate) continue;
 	if (!slices[i].visible && !slices[_prev_i].visible) continue;
-	
+
     var ang = i * slice_size;
 
     var x2 = cx + lengthdir_x(radius, ang);

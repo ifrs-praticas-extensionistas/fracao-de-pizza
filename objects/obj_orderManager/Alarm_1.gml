@@ -37,11 +37,11 @@ for (var i = array_length(opcoes) - 1; i > 0; i--) {
 }
 
 // Atribui aos botões
-for (var i = 0; i < 4; i++) {
-    if (i < array_length(opcoes)) {
-        botoes[i].numerador   = opcoes[i][0];
-        botoes[i].denominador = opcoes[i][1];
-    }
-}
+//for (var i = 0; i < 4; i++) {
+ //   if (i < array_length(opcoes)) {
+//        botoes[i].numerador   = opcoes[i][0];
+ //       botoes[i].denominador = opcoes[i][1];
+   // }
+//}
 
 alarm[1] = room_speed;
