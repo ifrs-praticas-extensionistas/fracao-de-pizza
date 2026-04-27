@@ -10,7 +10,7 @@
     {"name":"scripts","order":5,"path":"folders/scripts.yy",},
   ],
   "ResourceOrderSettings":[
-    {"name":"fnt_fracao","order":3,"path":"fonts/fnt_fracao/fnt_fracao.yy",},
+    {"name":"font_fracao","order":3,"path":"fonts/font_fracao/font_fracao.yy",},
     {"name":"font_money_popup","order":2,"path":"fonts/font_money_popup/font_money_popup.yy",},
     {"name":"font_money","order":1,"path":"fonts/font_money/font_money.yy",},
     {"name":"obj_clock","order":2,"path":"objects/obj_clock/obj_clock.yy",},
@@ -24,6 +24,7 @@
     {"name":"obj_plate","order":1,"path":"objects/obj_plate/obj_plate.yy",},
     {"name":"obj_sliceSelector","order":2,"path":"objects/obj_sliceSelector/obj_sliceSelector.yy",},
     {"name":"SandboxPizza","order":1,"path":"rooms/SandboxPizza/SandboxPizza.yy",},
+    {"name":"draw_text_outline_color","order":2,"path":"scripts/draw_text_outline_color/draw_text_outline_color.yy",},
     {"name":"orderManager","order":1,"path":"scripts/orderManager/orderManager.yy",},
     {"name":"spr_clock","order":3,"path":"sprites/spr_clock/spr_clock.yy",},
     {"name":"spr_cutboard","order":5,"path":"sprites/spr_cutboard/spr_cutboard.yy",},

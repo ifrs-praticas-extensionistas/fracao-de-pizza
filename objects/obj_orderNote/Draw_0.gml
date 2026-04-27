@@ -19,7 +19,7 @@ draw_set_alpha(alpha);
 draw_set_color(c_black);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_set_font(fnt_fracao);
+draw_set_font(font_fracao);
 draw_text(0, -20, string(numerador));
 draw_line_width(-18, -2, 18, -2, 2);
 draw_text(0, 14, string(denominador));

@@ -3,7 +3,7 @@ var start_y = y;
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_set_font(fnt_fracao); // Usando a fonte existente para consistência
+draw_set_font(font_fracao); // Usando a fonte existente para consistência
 
 for (var i = min_slices; i <= max_slices; i++) {
     var bx = start_x + (i - min_slices) * (btn_width + btn_spacing);

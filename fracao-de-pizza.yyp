@@ -34,8 +34,8 @@
   },
   "name":"fracao-de-pizza",
   "resources":[
-    {"id":{"name":"fnt_fracao","path":"fonts/fnt_fracao/fnt_fracao.yy",},},
     {"id":{"name":"font_clock","path":"fonts/font_clock/font_clock.yy",},},
+    {"id":{"name":"font_fracao","path":"fonts/font_fracao/font_fracao.yy",},},
     {"id":{"name":"font_money_popup","path":"fonts/font_money_popup/font_money_popup.yy",},},
     {"id":{"name":"font_money","path":"fonts/font_money/font_money.yy",},},
     {"id":{"name":"obj_answerButton","path":"objects/obj_answerButton/obj_answerButton.yy",},},
@@ -55,6 +55,7 @@
     {"id":{"name":"obj_table","path":"objects/obj_table/obj_table.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"SandboxPizza","path":"rooms/SandboxPizza/SandboxPizza.yy",},},
+    {"id":{"name":"draw_text_outline_color","path":"scripts/draw_text_outline_color/draw_text_outline_color.yy",},},
     {"id":{"name":"money_functions","path":"scripts/money_functions/money_functions.yy",},},
     {"id":{"name":"orderManager","path":"scripts/orderManager/orderManager.yy",},},
     {"id":{"name":"sh_slice","path":"shaders/sh_slice/sh_slice.yy",},},
