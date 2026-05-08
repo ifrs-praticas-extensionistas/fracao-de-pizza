@@ -47,6 +47,7 @@
     {"id":{"name":"obj_money","path":"objects/obj_money/obj_money.yy",},},
     {"id":{"name":"obj_orderManager","path":"objects/obj_orderManager/obj_orderManager.yy",},},
     {"id":{"name":"obj_orderNote","path":"objects/obj_orderNote/obj_orderNote.yy",},},
+    {"id":{"name":"obj_serveButton","path":"objects/obj_serveButton/obj_serveButton.yy",},},
     {"id":{"name":"obj_pizza_plate","path":"objects/obj_pizza_plate/obj_pizza_plate.yy",},},
     {"id":{"name":"obj_pizza_slice","path":"objects/obj_pizza_slice/obj_pizza_slice.yy",},},
     {"id":{"name":"obj_pizza","path":"objects/obj_pizza/obj_pizza.yy",},},
