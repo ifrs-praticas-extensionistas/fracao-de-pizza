@@ -13,7 +13,11 @@ if (slice_count != last_slice_count) {
     slices = [];
     
     for (var i = 0; i < slice_count; i++) {
-        slices[i] = { visible: true };
+        slices[i] = { 
+            visible: true,
+            animated: false,
+            onplate: false
+        };
     }
 
     last_slice_count = slice_count;
