@@ -42,14 +42,9 @@ function check_and_complete_order() {
             money_add(5.00, true);
             found = true;
             
-            // Limpar prato automaticamente
-            with (obj_pizza) {
-                for (var j = 0; j < array_length(slices); j++) {
-                    if (slices[j].onplate) {
-                        slices[j].onplate = false;
-                        // O pedaço some do jogo (visible já era false)
-                    }
-                }
+            // Iniciar animação do prato (o prato se limpará ao sair da tela)
+            with (obj_pizza_plate) {
+                anim_state = "serving";
             }
             
             // Liberar slot no manager

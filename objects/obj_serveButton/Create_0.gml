@@ -1,2 +1,2 @@
-largura = 160;
+largura = 80;
 altura = 60;
