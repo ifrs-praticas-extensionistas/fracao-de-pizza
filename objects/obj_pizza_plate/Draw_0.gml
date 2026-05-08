@@ -1,6 +1,9 @@
-// Centro da pizza
+// Centro da pizza/prato
 var cx = x;
 var cy = y;
+
+// Desenha o prato primeiro
+draw_sprite(spr_plate, 0, cx, cy);
 
 if (!instance_exists(obj_pizza)) exit;
 
