@@ -11,3 +11,47 @@ function _garantir_botao(num, den) {
     b.numerador   = num;
     b.denominador = den;
 }
+
+function check_and_complete_order() {
+    if (!instance_exists(obj_pizza)) return;
+    
+    // 1. Identificar fraçao no prato
+    var total_slices = obj_pizza.slice_count;
+    var slices_on_plate = 0;
+    for (var i = 0; i < array_length(obj_pizza.slices); i++) {
+        if (obj_pizza.slices[i].onplate) {
+            slices_on_plate++;
+        }
+    }
+    
+    if (slices_on_plate == 0) return; // Nada no prato
+    
+    var found = false;
+    // 2. Validar com os pedidos ativos
+    with (obj_orderNote) {
+        if (concluido || falhado || caindo) continue;
+        
+        // Multiplicação cruzada: a/b == c/d => a*d == c*b
+        // Nosso pedido: numerador/denominador
+        // No prato: slices_on_plate/total_slices
+        if (numerador * total_slices == slices_on_plate * denominador) {
+            // Entrega correta!
+            concluido = true;
+            cor_flash = c_lime;
+            flash_timer = 60; // 1 segundo de flash
+            money_add(5.00, true);
+            found = true;
+            
+            // Iniciar animação do prato (o prato se limpará ao sair da tela)
+            with (obj_pizza_plate) {
+                anim_state = "serving";
+            }
+            
+            // Liberar slot no manager
+            var _s = slot;
+            with (obj_orderManager) { slots_ocupados[_s] = false; }
+            
+            break; // Sair do loop with após encontrar o primeiro pedido compatível
+        }
+    }
+}
