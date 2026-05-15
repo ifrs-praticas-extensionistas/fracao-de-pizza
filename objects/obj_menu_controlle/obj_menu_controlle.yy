@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_title_menu",
+  "%Name":"obj_menu_controlle",
   "eventList":[],
   "managed":true,
-  "name":"obj_title_menu",
+  "name":"obj_menu_controlle",
   "overriddenProperties":[],
   "parent":{
-    "name":"objetos",
-    "path":"folders/menu/objetos.yy",
+    "name":"controllers",
+    "path":"folders/menu/objetos/controllers.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_title_menu",
-    "path":"sprites/spr_title_menu/spr_title_menu.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
