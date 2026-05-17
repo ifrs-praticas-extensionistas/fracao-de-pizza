@@ -1,13 +1,16 @@
-hover = position_meeting(
+hover = point_in_rectangle(
     mouse_x,
     mouse_y,
-    id
+    bbox_left,
+    bbox_top,
+    bbox_right,
+    bbox_bottom
 );
 
 if (hover)
 {
-    image_xscale = lerp(image_xscale, 1.1, 0.2);
-    image_yscale = lerp(image_yscale, 1.1, 0.2);
+    image_xscale = lerp(image_xscale, hover_scale, hover_speed);
+    image_yscale = lerp(image_yscale, hover_scale, hover_speed);
 
     if (mouse_check_button_pressed(mb_left))
     {
@@ -16,6 +19,6 @@ if (hover)
 }
 else
 {
-    image_xscale = lerp(image_xscale, 1, 0.2);
-    image_yscale = lerp(image_yscale, 1, 0.2);
+    image_xscale = lerp(image_xscale, normal_scale, hover_speed);
+    image_yscale = lerp(image_yscale, normal_scale, hover_speed);
 }

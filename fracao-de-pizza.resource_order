@@ -50,6 +50,5 @@
     {"name":"spr_settings_button","order":2,"path":"sprites/spr_settings_button/spr_settings_button.yy",},
     {"name":"spr_sticke","order":4,"path":"sprites/spr_sticke/spr_sticke.yy",},
     {"name":"spr_table","order":2,"path":"sprites/spr_table/spr_table.yy",},
-    {"name":"Sprite6","order":7,"path":"sprites/Sprite6/Sprite6.yy",},
   ],
 }

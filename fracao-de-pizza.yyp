@@ -87,7 +87,6 @@
     {"id":{"name":"spr_settings_button","path":"sprites/spr_settings_button/spr_settings_button.yy",},},
     {"id":{"name":"spr_sticke","path":"sprites/spr_sticke/spr_sticke.yy",},},
     {"id":{"name":"spr_table","path":"sprites/spr_table/spr_table.yy",},},
-    {"id":{"name":"Sprite6","path":"sprites/Sprite6/Sprite6.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
