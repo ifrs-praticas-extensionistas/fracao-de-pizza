@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_play_button",
+  "%Name":"obj_resume_button",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_play_button",
+  "name":"obj_resume_button",
   "overriddenProperties":[],
   "parent":{
     "name":"buttons",
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_play_button",
-    "path":"sprites/spr_play_button/spr_play_button.yy",
+    "name":"spr_resume_button",
+    "path":"sprites/spr_resume_button/spr_resume_button.yy",
   },
   "spriteMaskId":null,
   "visible":true,

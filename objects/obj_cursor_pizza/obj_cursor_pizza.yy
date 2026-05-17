@@ -1,13 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_menu_controlle",
-  "eventList":[],
+  "%Name":"obj_cursor_pizza",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_menu_controlle",
+  "name":"obj_cursor_pizza",
   "overriddenProperties":[],
   "parent":{
-    "name":"controllers",
-    "path":"folders/menu/objetos/controllers.yy",
+    "name":"buttons",
+    "path":"folders/menu/buttons.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_cursor_pizza",
+    "path":"sprites/spr_cursor_pizza/spr_cursor_pizza.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
