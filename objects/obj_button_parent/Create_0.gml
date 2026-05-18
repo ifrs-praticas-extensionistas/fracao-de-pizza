@@ -1,6 +1,8 @@
- hover_scale = 1.1;
-normal_scale = 1;
+hover = false;
+selected = false;
 
-hover_speed = 0.2;
+target_scale = 1;
+image_xscale = 1;
+image_yscale = 1;
 
 clickable = true;

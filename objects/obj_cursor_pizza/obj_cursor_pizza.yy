@@ -4,13 +4,14 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_cursor_pizza",
   "overriddenProperties":[],
   "parent":{
-    "name":"buttons",
-    "path":"folders/menu/buttons.yy",
+    "name":"cursor",
+    "path":"folders/menu/ui/cursor.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_cursor_pizza",
-    "path":"sprites/spr_cursor_pizza/spr_cursor_pizza.yy",
+    "name":"spr_cursorNORMAL_pizza",
+    "path":"sprites/spr_cursorNORMAL_pizza/spr_cursorNORMAL_pizza.yy",
   },
   "spriteMaskId":null,
   "visible":true,

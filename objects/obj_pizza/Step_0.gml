@@ -1,3 +1,8 @@
+if (global.game_paused)
+{
+    exit;
+}
+
 // Detecta os números (0–9)
 for (var i = 0; i <= 9; i++) {
     if (keyboard_check_pressed(ord(string(i)))) {

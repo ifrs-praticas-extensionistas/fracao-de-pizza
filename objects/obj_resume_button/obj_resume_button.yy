@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"buttons",
-    "path":"folders/menu/buttons.yy",
+    "path":"folders/menu/ui/buttons.yy",
   },
   "parentObjectId":{
     "name":"obj_button_parent",

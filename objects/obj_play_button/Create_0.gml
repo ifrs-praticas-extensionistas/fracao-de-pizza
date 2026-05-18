@@ -1,3 +1,3 @@
-hover_scale = 1.3;
-
-room_goto(SandboxPizza);
+function on_click(){
+	room_goto(SandboxPizza); 
+}

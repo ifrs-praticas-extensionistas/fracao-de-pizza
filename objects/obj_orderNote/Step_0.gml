@@ -1,3 +1,8 @@
+if (global.game_paused)
+{
+    exit;
+}
+
 if (entrando) {
     x += (target_x - x) * 0.12;
     y += (target_y - y) * 0.12;

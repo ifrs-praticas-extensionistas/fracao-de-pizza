@@ -9,8 +9,8 @@
   "name":"obj_button_parent",
   "overriddenProperties":[],
   "parent":{
-    "name":"controllers",
-    "path":"folders/menu/objetos/controllers.yy",
+    "name":"buttons",
+    "path":"folders/menu/ui/buttons.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_add_button",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_add_button",
+  "parent":{
+    "name":"Script",
+    "path":"folders/menu/Script.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
