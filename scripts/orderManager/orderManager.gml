@@ -39,7 +39,7 @@ function check_and_complete_order() {
             concluido = true;
             cor_flash = c_lime;
             flash_timer = 60; // 1 segundo de flash
-            money_add(5.00, true);
+            money_add(20.00, true);
             found = true;
             
             // Iniciar animação do prato (o prato se limpará ao sair da tela)
@@ -54,4 +54,15 @@ function check_and_complete_order() {
             break; // Sair do loop with após encontrar o primeiro pedido compatível
         }
     }
+	if (!concluido){
+		 // Entrega errada!
+            cor_flash = c_red;
+            flash_timer = 60; // 1 segundo de flash
+            money_remove(10.00, true);
+            
+            // Iniciar animação do prato (o prato se limpará ao sair da tela)
+            with (obj_pizza_plate) {
+                anim_state = "serving";
+            }
+	}
 }
