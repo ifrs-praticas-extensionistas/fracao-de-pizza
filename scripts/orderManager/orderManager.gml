@@ -54,7 +54,7 @@ function check_and_complete_order() {
             break; // Sair do loop with após encontrar o primeiro pedido compatível
         }
     }
-	if (!concluido){
+	if (!found){
 		 // Entrega errada!
             cor_flash = c_red;
             flash_timer = 60; // 1 segundo de flash
