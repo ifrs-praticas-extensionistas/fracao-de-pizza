@@ -1,4 +1,4 @@
-if (global.game_paused)
+if (global.game_state == GAME_STATE.PAUSED)
 {
     exit;
 }

@@ -1,16 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_button_parent",
+  "%Name":"obj_menu_main",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_button_parent",
+  "name":"obj_menu_main",
   "overriddenProperties":[],
   "parent":{
-    "name":"buttons",
-    "path":"folders/menu/ui/buttons.yy",
+    "name":"controllers",
+    "path":"folders/menu/objetos/controllers.yy",
   },
   "parentObjectId":null,
   "persistent":false,

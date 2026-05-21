@@ -1,7 +1,3 @@
-if (global.game_paused)
-{
-    exit;
-}
 
 if (browser_width != bw || browser_height != bh) {
 	bw = browser_width;

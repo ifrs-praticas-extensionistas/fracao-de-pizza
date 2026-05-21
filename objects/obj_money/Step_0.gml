@@ -1,7 +1,4 @@
-if (global.game_paused)
-{
-    exit;
-}
+
 
 zpressed = keyboard_check_pressed(ord("Z"))
 xpressed = keyboard_check_pressed(ord("X"))

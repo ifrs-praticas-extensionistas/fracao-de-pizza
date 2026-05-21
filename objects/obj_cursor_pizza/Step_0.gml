@@ -1,18 +1,24 @@
-cursor_x = device_mouse_x_to_gui(0);
-cursor_y = device_mouse_y_to_gui(0);
+x = device_mouse_x_to_gui(0);
+y = device_mouse_y_to_gui(0);
 
 state = CURSOR_STATE.NORMAL;
 
-if (instance_position(x, y, obj_button_parent))
+// hover
+if (instance_position(x, y, obj_menu_controller))
 {
     state = CURSOR_STATE.HOVER;
 }
 
-if (mouse_check_button(mb_left))
+// click
+if (
+    global.menu_hover != -1
+    && mouse_check_button_pressed(mb_left)
+)
 {
     state = CURSOR_STATE.CLICK;
 }
 
+// troca sprite
 switch(state)
 {
     case CURSOR_STATE.NORMAL:

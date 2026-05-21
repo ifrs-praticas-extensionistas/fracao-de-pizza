@@ -1,1 +1,1 @@
-draw_sprite(cursor_sprite, 0, cursor_x, cursor_y);
+draw_sprite(cursor_sprite, 0, x, y);

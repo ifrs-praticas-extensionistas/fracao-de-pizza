@@ -1,8 +1,7 @@
-if (global.game_paused)
+if (global.game_state == GAME_STATE.PAUSED)
 {
     exit;
 }
-
 
 if (anim_state == "serving") {
     x += anim_speed;

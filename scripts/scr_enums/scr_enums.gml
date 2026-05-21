@@ -1,11 +1,5 @@
-enum CURSOR_STATE{
+enum CURSOR_STATE {
 	NORMAL,
 	HOVER,
 	CLICK
-}
-
-enum GAME_STATE
-{
-    PLAYING,
-    PAUSED
 }

@@ -1,11 +1,14 @@
 persistent = true;
 
+// sprite inicial
 cursor_sprite = spr_cursorNORMAL_pizza;
 
-//esconde o cursor padrão
+// esconde cursor do sistema
 window_set_cursor(cr_none);
 
-state = CURSOR_STATE.NORMAL; 
+// estado inicial
+state = CURSOR_STATE.NORMAL;
 
-cursor_x = 0; 
-cursor_y = 0; 
+// posição
+x = device_mouse_x_to_gui(0);
+y = device_mouse_y_to_gui(0); 

@@ -1,8 +1,25 @@
-instance_create_layer(0, 0, "Instances", obj_cursor_pizza);
+global.music_on = true;
+global.volume = 1;
 
-global.game_paused = true;
+audio_master_gain(global.volume);
 
-if (mouse_check_button_pressed(mb_left))
-{
-    audio_play_sound(mus_menu, 1, true);
-}  
+// controle musica
+music_started = false;
+
+// fonte
+fonte = fonte_menu;
+
+// estado menu
+menu = "main";
+
+// opções
+opcoes_main = [
+    "New Game",
+    "Settings",
+    "Exit"
+];
+
+op_main_max = array_length(opcoes_main);
+
+// distancia entre itens
+dist = 80;
