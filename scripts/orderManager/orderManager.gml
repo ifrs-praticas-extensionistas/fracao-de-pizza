@@ -27,38 +27,52 @@ function check_and_complete_order() {
     if (slices_on_plate == 0) return; // Nada no prato
     
     var found = false;
-    // 2. Validar com os pedidos ativos
+    var best_note = noone;
+    var min_time = 999999;
+    
+    // 2. Validar com os pedidos ativos (Priorizar o que tem menos tempo)
     with (obj_orderNote) {
-        if (concluido || falhado || caindo) continue;
+        if (concluido || falhado || caindo || entrando) continue;
         
         // Multiplicação cruzada: a/b == c/d => a*d == c*b
-        // Nosso pedido: numerador/denominador
-        // No prato: slices_on_plate/total_slices
         if (numerador * total_slices == slices_on_plate * denominador) {
+            if (tempo_restante < min_time) {
+                min_time = tempo_restante;
+                best_note = id;
+            }
+        }
+    }
+    
+    if (best_note != noone) {
+        with (best_note) {
             // Entrega correta!
             concluido = true;
             cor_flash = c_lime;
             flash_timer = 60; // 1 segundo de flash
-            money_add(20.00, true);
-            found = true;
             
-            // Iniciar animação do prato (o prato se limpará ao sair da tela)
-            with (obj_pizza_plate) {
-                anim_state = "serving";
-            }
+            // Cálculo do dinheiro baseado no tempo (balanço: não linear para facilitar)
+            // Adicionamos +2 segundos de "lambuja" para compensar o tempo de animação/reação
+            // Usamos raiz quadrada para o bônus cair devagar no início e rápido no fim
+            var bonus_mult = sqrt(clamp((tempo_restante + 2.0) / tempo_total, 0, 1));
+            var recompensa = valor_base + (valor_bonus_max * bonus_mult);
+            
+            money_add(recompensa, true);
             
             // Liberar slot no manager
             var _s = slot;
             with (obj_orderManager) { slots_ocupados[_s] = false; }
-            
-            break; // Sair do loop with após encontrar o primeiro pedido compatível
+        }
+        
+        found = true;
+        // Iniciar animação do prato (o prato se limpará ao sair da tela)
+        with (obj_pizza_plate) {
+            anim_state = "serving";
         }
     }
+    
 	if (!found){
-		 // Entrega errada!
-            cor_flash = c_red;
-            flash_timer = 60; // 1 segundo de flash
-            money_remove(10.00, true);
+		 // Entrega errada! (Perde um pouco de dinheiro)
+            money_remove(2.50, true);
             
             // Iniciar animação do prato (o prato se limpará ao sair da tela)
             with (obj_pizza_plate) {
