@@ -8,6 +8,10 @@ entrando   = true;
 tempo_total    = 30.0;
 tempo_restante = tempo_total;
 
+valor_base      = 10.00;
+valor_bonus_max = 15.00;
+valor_perda     = 5.00;
+
 concluido = false;
 falhado   = false;
 caindo    = false;

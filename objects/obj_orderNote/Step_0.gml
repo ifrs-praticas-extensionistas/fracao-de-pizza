@@ -35,5 +35,5 @@ if (tempo_restante <= 0) {
     caindo     = true;
     var _s = slot;
     with (obj_orderManager) { slots_ocupados[_s] = false; }
-	money_remove(5, 1);
+	money_remove(valor_perda, true);
 }
