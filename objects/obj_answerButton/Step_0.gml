@@ -1,3 +1,5 @@
+// PAUSANDO O JOGO
+if(global.pause)exit;
 
 var hover = point_in_rectangle(mouse_x, mouse_y,
     x - largura/2, y - altura/2,

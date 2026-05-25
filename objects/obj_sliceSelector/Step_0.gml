@@ -1,3 +1,6 @@
+// PAUSANDO O JOGO
+if(global.pause)exit;
+
 
 if (mouse_check_button_pressed(mb_left)) {
     var start_x = x - (total_width / 2);

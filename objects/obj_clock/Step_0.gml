@@ -1,3 +1,5 @@
+if(global.pause)exit;
+
 if (!acabou) {
     dt = delta_time / 1000000;
 

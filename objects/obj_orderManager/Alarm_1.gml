@@ -1,4 +1,4 @@
-// Coleta frações das notas ativas
+ // Coleta frações das notas ativas
 var ativas = [];
 with (obj_orderNote) {
     if (!caindo) array_push(ativas, [numerador, denominador]);

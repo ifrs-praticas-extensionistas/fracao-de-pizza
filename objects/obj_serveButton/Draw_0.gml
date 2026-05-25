@@ -1,4 +1,4 @@
-draw_set_alpha(1);
+ draw_set_alpha(1);
 var hover = point_in_rectangle(mouse_x, mouse_y,
     x - largura/2, y - altura/2,
     x + largura/2, y + altura/2);

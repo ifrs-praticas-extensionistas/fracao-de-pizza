@@ -1,3 +1,6 @@
+// PAUSANDO O JOGO
+if(global.pause)exit;
+
 
 if (entrando) {
     x += (target_x - x) * 0.12;

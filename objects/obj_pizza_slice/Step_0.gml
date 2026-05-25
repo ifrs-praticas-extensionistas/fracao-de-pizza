@@ -1,3 +1,7 @@
+// PAUSANDO O JOGO
+if(global.pause)exit;
+
+
 if (!obj_pizza.slices[slice_index].onplate) { x += a_speed; }
 else {x -= a_speed}
 a_speed += 5

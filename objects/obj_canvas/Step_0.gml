@@ -1,4 +1,7 @@
+// PAUSANDO O JOGO
+if(global.pause)exit;
 
+ 
 if (browser_width != bw || browser_height != bh) {
 	bw = browser_width;
 	bh = browser_height;

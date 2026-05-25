@@ -1,4 +1,4 @@
-// Acha slot livre
+ // Acha slot livre
 var slot_livre = -1;
 for (var i = 0; i < 4; i++) {
     if (!slots_ocupados[i]) { slot_livre = i; break; }
