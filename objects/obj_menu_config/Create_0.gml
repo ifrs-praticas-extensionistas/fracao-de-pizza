@@ -1,3 +1,5 @@
+var cx = display_get_gui_width() / 2;
+var cy = display_get_gui_height() / 2;
 var b;
 
 b = instance_create_layer(960,400,"GUI",obj_btn);

@@ -1,3 +1,5 @@
+draw_set_font(fonte_menu); 
+
 hover =
 point_in_rectangle(
     device_mouse_x_to_gui(0),
@@ -16,32 +18,45 @@ if(hover && mouse_check_button_pressed(mb_left))
             room_goto(SandboxPizza);
         break;
 
+
         case 1:
-          with(obj_btn){
+		with(obj_btn){
 			instance_destroy();
+	}
+
+	    with(obj_menu_main)
+	{
+		instance_destroy();
 }
 
-			instance_create_layer(0,0,"GUI",obj_menu_config);
+		instance_create_layer(0,0,"GUI",obj_menu_config);
+
         break;
+
 
         case 2:
             game_end();
         break;
 
+
         case 3:
+
             global.music_on = !global.music_on;
 
             if(global.music_on)
             {
-                audio_resume_all();
+                audio_resume_sound(global.musica_menu);
             }
             else
             {
-                audio_pause_all();
+                audio_pause_sound(global.musica_menu);
             }
+
         break;
 
+
         case 4:
+
             global.volume += 0.1;
 
             if(global.volume > 1)
@@ -50,26 +65,36 @@ if(hover && mouse_check_button_pressed(mb_left))
             }
 
             audio_master_gain(global.volume);
+
         break;
 
+
         case 5:
+
             global.volume -= 0.1;
 
             if(global.volume < 0)
             {
                 global.volume = 0;
             }
- 
+
             audio_master_gain(global.volume);
+
         break;
+
 
         case 6:
-           with(obj_btn)
-    {
-        instance_destroy();
-    }
+			with(obj_btn){
+				instance_destroy();
+			}
 
-		instance_create_layer(0,0,"GUI",obj_menu_main);
+            with(obj_menu_main)
+            {
+                instance_destroy();
+            }
+
+            instance_create_layer(0,0,"Instancias",obj_menu_main);
+
         break;
     }
-}
+} 

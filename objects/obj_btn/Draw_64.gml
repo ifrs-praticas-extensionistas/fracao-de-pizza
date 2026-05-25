@@ -1,6 +1,7 @@
 draw_set_font(fonte_menu);
+
 draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
+draw_set_valign(fa_middle); 
 
 if(hover)
 {
@@ -11,4 +12,4 @@ else
     draw_set_color(c_white);
 }
 
-draw_text(x,y,texto);
+draw_text(x, y, texto);

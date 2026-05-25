@@ -1,8 +1,3 @@
-if (global.game_state == GAME_STATE.PAUSED)
-{
-    exit;
-}
-
 if (anim_state == "serving") {
     x += anim_speed;
     if (x > room_width + 200) {

@@ -1,25 +1,6 @@
-global.music_on = true;
+// volume
 global.volume = 1;
+global.music_on = true;
 
-audio_master_gain(global.volume);
-
-// controle musica
+// música iniciou?
 music_started = false;
-
-// fonte
-fonte = fonte_menu;
-
-// estado menu
-menu = "main";
-
-// opções
-opcoes_main = [
-    "New Game",
-    "Settings",
-    "Exit"
-];
-
-op_main_max = array_length(opcoes_main);
-
-// distancia entre itens
-dist = 80;
