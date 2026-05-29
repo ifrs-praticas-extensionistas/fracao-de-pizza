@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"fnt_fracao",
+  "%Name":"font_fracao",
   "AntiAlias":1,
   "applyKerning":0,
   "ascender":17,
@@ -902,7 +902,7 @@
   "last":0,
   "lineHeight":22,
   "maintainGms1Font":false,
-  "name":"fnt_fracao",
+  "name":"font_fracao",
   "parent":{
     "name":"fonts",
     "path":"folders/fonts.yy",

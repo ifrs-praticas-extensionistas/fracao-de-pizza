@@ -13,3 +13,7 @@ if (shake > 0) {
 } else {
     shake = 0;
 }
+
+if(money < 0) {
+	game_over();
+}

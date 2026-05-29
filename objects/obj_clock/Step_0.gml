@@ -1,3 +1,7 @@
+if (global.paused) {
+	exit;
+}
+
 if (!acabou) {
     dt = delta_time / 1000000;
 
@@ -7,8 +11,6 @@ if (!acabou) {
         time_left = 0;
         acabou = true;
 
-        // fim da fase
-        show_message("Tempo esgotado!");
-        room_restart();
+		handle_time_up();
     }
 }

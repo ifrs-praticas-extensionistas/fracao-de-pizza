@@ -5,8 +5,10 @@ target_x   = x;
 target_y   = y;
 entrando   = true;
 
+expiration_mult = obj_stages.STAGE_STATES[global.current_stage - 1].order_expiration_mult
+
 tempo_total    = 30.0;
-tempo_restante = tempo_total;
+tempo_restante = tempo_total * expiration_mult;
 
 valor_base      = 10.00;
 valor_bonus_max = 15.00;
