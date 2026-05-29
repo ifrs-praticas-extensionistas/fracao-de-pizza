@@ -41,6 +41,7 @@ function reset_state() {
 
 function handle_time_up(){
 	global.paused = true;
+	obj_orderManager.clear_orders();
 	
 	if (obj_money.money >= obj_stages.STAGE_STATES[global.current_stage - 1].goal) {
 		obj_money.total_money_week += obj_money.money;
