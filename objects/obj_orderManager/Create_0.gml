@@ -1,7 +1,7 @@
 global.pontuacao  = 0;
 max_notas         = 4;
 slots_ocupados    = [false, false, false, false];
-spawn_intervalo   = room_speed * 5;
+spawn_intervalo   = room_speed * obj_stages.STAGE_STATES[global.current_stage - 1].spawn_interval;
 
 // Posições dos 4 slots (fila horizontal)
 var espaco = 110; // era 340
@@ -25,5 +25,19 @@ todas_fracoes = [
  //   botoes[i].btn_index = i;
 //}
 
-alarm[0] = room_speed * 2; // primeira nota
-alarm[1] = room_speed;     // atualização dos botões
+start_orders();
+
+function start_orders() {
+	spawn_intervalo   = room_speed * obj_stages.STAGE_STATES[global.current_stage - 1].spawn_interval;
+	alarm[0] = room_speed * 2; // primeira nota
+	alarm[1] = room_speed;     // atualização dos botões
+}
+
+function clear_orders() {
+	alarm[0] = -1;
+	alarm[1] = -1;
+	slots_ocupados    = [false, false, false, false];
+	with (obj_orderNote) {
+	    instance_destroy();
+	}
+}
