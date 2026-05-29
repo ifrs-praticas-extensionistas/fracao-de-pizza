@@ -18,6 +18,7 @@ function load_next_stage(){
 		obj_orderManager.start_orders();
 		obj_pizza.reset_pizza();
 		obj_pizza_plate.reset_plate();
+		update_gui_stats();
 		global.paused = false;
 }
 
@@ -65,7 +66,22 @@ function update_money_stats_menu() {
 		var _money_total_text_el = _money_total_struct.layerElements[0].elementId;
 		
 		layer_text_text(_money_total_text_el, "Total da semana: R$ " + string(obj_money.total_money_week));
+}
+
+function update_gui_stats(){
+	var _layer_panel = layer_get_flexpanel_node("gui_layer");
 	
-		// obj_money.money
-		// obj_money.total_money_week
+	// Dia
+	var _stage_panel = flexpanel_node_get_child(_layer_panel, "stage")
+	var _stage_struct = flexpanel_node_get_struct(_stage_panel);
+	var _stage_text_el = _stage_struct.layerElements[0].elementId;
+	
+	layer_text_text(_stage_text_el, "Dia " + string(global.current_stage));
+	
+	// Meta
+	var _goal_panel = flexpanel_node_get_child(_layer_panel, "goal")
+	var _goal_struct = flexpanel_node_get_struct(_goal_panel);
+	var _goal_text_el = _goal_struct.layerElements[0].elementId;
+	
+	layer_text_text(_goal_text_el, "Meta: R$ " + string(obj_stages.STAGE_STATES[global.current_stage - 1].goal));
 }

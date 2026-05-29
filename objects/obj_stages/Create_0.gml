@@ -48,3 +48,5 @@ STAGE_STATES = [
 ]
 
 layer_set_visible("in_game_layer", false);
+
+update_gui_stats();
