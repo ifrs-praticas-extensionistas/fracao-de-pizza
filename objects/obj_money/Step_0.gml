@@ -9,3 +9,14 @@ if zpressed = true {
 } else if xpressed = true {
 	money_remove(2.00, true);
 }
+
+// Lógica de tremor (shake)
+if (shake > 0) {
+    shake -= 0.5;
+} else {
+    shake = 0;
+}
+
+if(money < 0) {
+	game_over();
+}
