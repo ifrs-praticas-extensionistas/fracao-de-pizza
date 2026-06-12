@@ -39,9 +39,7 @@ var radius = sprite_width * 0.5;
 
 for (var i = 0; i < _num_slices; i++)
 {
-	
-	var _prev_i = i == 0 ? (_num_slices - 1) : i - 1;
-	var _next_i = i == _num_slices - 1 ? (_num_slices - 1) : i + 1;
+	var _prev_i = (i + _num_slices - 1) mod _num_slices;
 	
 	if (!_slices[i].onplate && !_slices[_prev_i].onplate) continue;
 	if (_slices[i].visible && _slices[_prev_i].visible) continue;

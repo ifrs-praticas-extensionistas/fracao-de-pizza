@@ -33,7 +33,7 @@ var radius = sprite_width * 0.5;
 for (var i = 0; i < _num_slices; i++)
 {
 	
-	var _prev_i = i == 0 ? (_num_slices - 1) : i - 1;
+	var _prev_i = (i + _num_slices - 1) mod _num_slices;
 	
 	if (slices[i].onplate && slices[_prev_i].onplate) continue;
 	if (!slices[i].visible && !slices[_prev_i].visible) continue;
@@ -46,3 +46,4 @@ for (var i = 0; i < _num_slices; i++)
 	// Desenha os cortes na pizza
     draw_line(cx, cy, x2, y2);
 }
+
