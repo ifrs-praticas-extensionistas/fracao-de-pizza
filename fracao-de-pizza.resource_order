@@ -1,8 +1,8 @@
 {
   "FolderOrderSettings":[
-    {"name":"menu","order":5,"path":"folders/objects/menu.yy",},
     {"name":"backgound","order":2,"path":"folders/objects/backgound.yy",},
     {"name":"controller","order":3,"path":"folders/objects/controller.yy",},
+    {"name":"menu","order":5,"path":"folders/objects/menu.yy",},
     {"name":"orders","order":1,"path":"folders/objects/orders.yy",},
     {"name":"ui","order":4,"path":"folders/objects/ui.yy",},
     {"name":"rooms","order":6,"path":"folders/rooms.yy",},
