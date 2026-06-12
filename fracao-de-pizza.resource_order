@@ -20,6 +20,7 @@
     {"name":"obj_buttons","order":1,"path":"objects/obj_buttons/obj_buttons.yy",},
     {"name":"obj_clock","order":2,"path":"objects/obj_clock/obj_clock.yy",},
     {"name":"obj_cutboard","order":3,"path":"objects/obj_cutboard/obj_cutboard.yy",},
+    {"name":"obj_cutter","order":4,"path":"objects/obj_cutter/obj_cutter.yy",},
     {"name":"obj_init","order":1,"path":"objects/obj_init/obj_init.yy",},
     {"name":"obj_money_popup","order":1,"path":"objects/obj_money_popup/obj_money_popup.yy",},
     {"name":"obj_next_day_btn","order":3,"path":"objects/obj_next_day_btn/obj_next_day_btn.yy",},
