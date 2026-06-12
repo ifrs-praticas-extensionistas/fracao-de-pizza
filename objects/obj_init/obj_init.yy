@@ -8,8 +8,8 @@
   "name":"obj_init",
   "overriddenProperties":[],
   "parent":{
-    "name":"contoller",
-    "path":"folders/objects/contoller.yy",
+    "name":"controller",
+    "path":"folders/objects/controller.yy",
   },
   "parentObjectId":null,
   "persistent":false,
